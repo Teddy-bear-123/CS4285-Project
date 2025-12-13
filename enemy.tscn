@@ -1,0 +1,85 @@
+[gd_scene load_steps=10 format=3 uid="uid://cab5lhuyf786v"]
+
+[ext_resource type="Texture2D" uid="uid://b7d5b3vts0gah" path="res://Assets/armature_hit_00.png" id="1_7k104"]
+[ext_resource type="Script" uid="uid://duvr3dphwm5rc" path="res://Scripts/enemy.gd" id="1_epg4t"]
+[ext_resource type="Script" uid="uid://7xcsqe7g5hg0" path="res://Scripts/state_machine.gd" id="3_3yqyl"]
+[ext_resource type="Script" uid="uid://kq2ceqg5mp8b" path="res://Idle.gd" id="4_wujgv"]
+[ext_resource type="Script" uid="uid://cxi1sevgmw8sq" path="res://Scripts/random_timer.gd" id="5_hb8ge"]
+[ext_resource type="Script" uid="uid://dnsmtgfj7nhlx" path="res://Wandering.gd" id="6_hb8ge"]
+[ext_resource type="Script" uid="uid://diucd7m76gqnd" path="res://Chase.gd" id="7_e1ltt"]
+[ext_resource type="Script" uid="uid://6vtd710wuu4n" path="res://Attack.gd" id="8_dxifv"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4gyqm"]
+radius = 77.0
+height = 154.0
+
+[node name="Enemy7" type="CharacterBody2D" unique_id=1459747379]
+position = Vector2(605, 165)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_epg4t")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1577541420]
+texture = ExtResource("1_7k104")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=894224173]
+position = Vector2(33, 19)
+shape = SubResource("CapsuleShape2D_4gyqm")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=403182669]
+
+[node name="StateMachine" type="Node" parent="." unique_id=833600316]
+script = ExtResource("3_3yqyl")
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateMachine" unique_id=1952831942]
+script = ExtResource("4_wujgv")
+
+[node name="IdleTimer" type="Timer" parent="StateMachine/Idle" unique_id=24667700]
+one_shot = true
+script = ExtResource("5_hb8ge")
+
+[node name="RotationTimer" type="Timer" parent="StateMachine/Idle" unique_id=1177749890]
+one_shot = true
+script = ExtResource("5_hb8ge")
+min_time = 0.2
+max_time = 1.0
+metadata/_custom_type_script = "uid://cxi1sevgmw8sq"
+
+[node name="Wandering" type="Node" parent="StateMachine" unique_id=217095412]
+script = ExtResource("6_hb8ge")
+
+[node name="Chase" type="Node" parent="StateMachine" unique_id=2031845571]
+script = ExtResource("7_e1ltt")
+
+[node name="RandomTargetChaseUpdateTimer" type="Timer" parent="StateMachine/Chase" unique_id=1158546515]
+one_shot = true
+script = ExtResource("5_hb8ge")
+min_time = 0.5
+max_time = 3.0
+metadata/_custom_type_script = "uid://cxi1sevgmw8sq"
+
+[node name="Attack" type="Node" parent="StateMachine" unique_id=882785360]
+script = ExtResource("8_dxifv")
+
+[node name="StateLabel" type="Label" parent="." unique_id=2013631836]
+offset_left = 258.0
+offset_top = 104.0
+offset_right = 298.0
+offset_bottom = 127.0
+
+[node name="VisionRayCast2D" type="RayCast2D" parent="." unique_id=965392992]
+target_position = Vector2(174, 0)
+collide_with_areas = true
+
+[node name="AttackArea" type="Area2D" parent="." unique_id=549904722]
+collision_layer = 16
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AttackArea" unique_id=1078708699]
+polygon = PackedVector2Array(0, 0, 180, -100, 180, 100)
+
+[connection signal="timeout" from="StateMachine/Idle/IdleTimer" to="StateMachine/Idle" method="_on_idle_timer_timeout"]
+[connection signal="timeout" from="StateMachine/Idle/RotationTimer" to="StateMachine/Idle" method="_on_rotation_timer_timeout"]
+[connection signal="timeout" from="StateMachine/Chase/RandomTargetChaseUpdateTimer" to="StateMachine/Chase" method="_on_random_target_chase_update_timer_timeout"]
+[connection signal="body_entered" from="AttackArea" to="StateMachine/Chase" method="_on_attack_area_body_entered"]
+[connection signal="body_exited" from="AttackArea" to="StateMachine/Attack" method="_on_attack_area_body_exited"]
