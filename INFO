@@ -1,0 +1,96 @@
+
+Usefull Links:
+    - https://opengameart.org/
+    - https://github.com/Maaack/Godot-Game-Template - Usefull template / usefull nodes and scenes
+    - https://github.com/GravityI/kilvault - A 3d FPS game with procdural generation 
+    - https://github.com/gdquest-demos/godot-procedural-generation - Procedural generation examples  
+    - https://github.com/chafmere/Godot4-FPS-Template - fps game template
+    - https://github.com/EricXu1728/Godot4SourceEngineMovement - Movement
+    - https://github.com/BirDt/bhop3d - movement
+    - https://www.youtube.com/watch?v=LOhfqjmasi0&t=2508s
+        - https://www.youtube.com/watch?v=ke5KpqcoiIU&t=1125s -- His videos are nice
+
+
+    - https://www.youtube.com/watch?v=-aMYB3cwQPY - Procedural generation
+    - https://www.youtube.com/watch?v=85jOLIsjr7w - Rouge like
+
+
+Assets
+    - https://kenney.nl/assets/top-down-shooter
+    - https://opengameart.org/content/futuristic-industrial-technical-tileset
+    - https://dithart.itch.io/ditharts-free-sci-fi-tileset - Very cool
+    - https://steelsoldier.itch.io/top-down-sci-fi-tileset - cool moving stuff
+    - https://aske4.itch.io/free-space-station 
+    - https://helleworld.itch.io/industrialscifi-top-down-tileset
+
+
+    - Extras: https://lpc.opengameart.org/content/sci-fi-top-down-tileset-unfinished-cursors
+
+Plan:
+
+    - Integreate The game template, pause screen, scene loading, menus, settings etc.
+    - Blank test enviorment
+    - Add sliding, movement.
+    - Debug overlay
+
+    - Some combat, basic gun, firing, damage on envirment.
+    - Basic enemy scene, gun that missies 90% of the time
+    - Spwan basic enemy randomly
+
+    - Procedrual generation work
+
+    - Scoring, Wepon systems, Enemy scaling, difficulty
+
+    - Polish, need better assets
+
+    - Bullet hell maybe?
+
+
+
+
+    Procedural Generation: 
+        - Macro layout generation (graph of arenas, hallways, traversal paths).
+        - Micro assembly of chunks (snap prefabs into place).
+        - Navigation and movement-specific placement (parkour routes, wall-run rails, climb spots).
+        - Decor / loot / enemy PCG (population after geometry is built).
+
+
+Possible Project struct
+res://
+    ├── player/
+    │     ├── Player.tscn
+    │     ├── BHop3D.gd
+    │     ├── camera/
+    │     └── movement/
+    │           ├── wallrun.gd
+    │           ├── slide.gd
+    │           └── jumps.gd
+    │
+    ├── weapons/
+    │     ├── hitscan/
+    │     ├── projectile/
+    │     └── upgrades/
+    │
+    ├── enemies/
+    │     ├── base/
+    │     └── variants/
+    │
+    ├── chunks/
+    │     ├── arena/
+    │     ├── traversal/
+    │     ├── vertical/
+    │     └── connectors/
+    │
+    ├── procedural/
+    │     ├── macro_generator.gd
+    │     ├── chunk_placer.gd
+    │     ├── movement_pass.gd
+    │     └── population_pass.gd
+    │
+    ├── world/
+    │     └── TestLevel.tscn
+    │
+    ├── ui/
+    ├── audio/
+    └── utils/
+```
