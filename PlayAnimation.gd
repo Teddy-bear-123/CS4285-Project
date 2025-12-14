@@ -5,4 +5,3 @@ extends Sprite2D
 
 func _ready() -> void:
 	animation_player.play("animation")
-
