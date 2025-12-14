@@ -36,71 +36,22 @@ Usefull Links: (assets, docs, templates, tutorials usefull anything)
     - https://pixelmikazuki.itch.io/free-slime-enemy/download/eyJpZCI6MjY2MDY0MywiZXhwaXJlcyI6MTc2NTcxNjIxOX0%3d.0h6wfTxKfdmFAySlU3Un9OAXeXA%3d
     - https://segnah.itch.io/flyng-enemy-pixel-art?download
 
-Plan:
-
-    - Integreate The game template, pause screen, scene loading, menus, settings etc.
-    - Blank test enviorment
-    - Add sliding, movement.
-    - Debug overlay
-
-    - Some combat, basic gun, firing, damage on envirment.
-    - Basic enemy scene, gun that missies 90% of the time
-    - Spwan basic enemy randomly
-
-    - Procedrual generation work
-
-    - Scoring, Wepon systems, Enemy scaling, difficulty
-
-    - Polish, need better assets
-
-    - Bullet hell maybe?
+TODO / Things to be done:
+    - Pause 
+    - Menus, Settings menu
+    - Credits
+    - A "starting" Scene
+    - Scoring (could be tied with enemy difficilty)
+    - Bullet hell? / add guns
+    - More Enemies - We only have a limited number
+    - More boses
+    - More rooms
+    - Custom Audio / sprites
+    - Procedrualy generated Enemies
+    
+Bugs:
+    - Softlocking of some rooms
+    - Out of bounds in some roosm
 
 
 
-
-    Procedural Generation: 
-        - Macro layout generation (graph of arenas, hallways, traversal paths).
-        - Micro assembly of chunks (snap prefabs into place).
-        - Navigation and movement-specific placement (parkour routes, wall-run rails, climb spots).
-        - Decor / loot / enemy PCG (population after geometry is built).
-
-
-Possible Project struct
-res://
-    ├── player/
-    │     ├── Player.tscn
-    │     ├── BHop3D.gd
-    │     ├── camera/
-    │     └── movement/
-    │           ├── wallrun.gd
-    │           ├── slide.gd
-    │           └── jumps.gd
-    │
-    ├── weapons/
-    │     ├── hitscan/
-    │     ├── projectile/
-    │     └── upgrades/
-    │
-    ├── enemies/
-    │     ├── base/
-    │     └── variants/
-    │
-    ├── chunks/
-    │     ├── arena/
-    │     ├── traversal/
-    │     ├── vertical/
-    │     └── connectors/
-    │
-    ├── procedural/
-    │     ├── macro_generator.gd
-    │     ├── chunk_placer.gd
-    │     ├── movement_pass.gd
-    │     └── population_pass.gd
-    │
-    ├── world/
-    │     └── TestLevel.tscn
-    │
-    ├── ui/
-    ├── audio/
-    └── utils/
-```
