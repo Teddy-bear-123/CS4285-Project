@@ -1,8 +1,10 @@
-[gd_scene load_steps=34 format=3 uid="uid://dftvfv1jceskv"]
+[gd_scene load_steps=36 format=3 uid="uid://dftvfv1jceskv"]
 
 [ext_resource type="PackedScene" uid="uid://bheousdjxqa14" path="res://Characters/Character.tscn" id="1"]
 [ext_resource type="Script" uid="uid://cb2c77a0wq7kp" path="res://Characters/Player/Player.gd" id="4"]
 [ext_resource type="Script" uid="uid://6u7cui8kkrb3" path="res://Characters/Player/PlayerFSM.gd" id="5"]
+[ext_resource type="AudioStream" path="res://01. Damage Grunt (Male).wav" id="24"]
+[ext_resource type="AudioStream" path="res://17. Damage Grunt (Male).wav" id="25"]
 [ext_resource type="Texture2D" uid="uid://brv7nu6bwnqd0" path="res://assets/pixelknight/war idle/war-idle2-1.png" id="5_u4bhk"]
 [ext_resource type="PackedScene" uid="uid://bn6jjdha1ecvj" path="res://Weapons/Sword.tscn" id="6"]
 [ext_resource type="Texture2D" uid="uid://b3wf5eeeyon3y" path="res://assets/pixelknight/war idle/war-idle2-2.png" id="6_6hnbq"]
@@ -177,6 +179,20 @@ tracks/3/keys = {
 "method": &"queue_free"
 }]
 }
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("DeathGruntSFX")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play"
+}]
+}
 
 [sub_resource type="Animation" id="20"]
 length = 0.6
@@ -215,6 +231,20 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [false, true, false, true]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("DamageGruntSFX")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play"
+}]
 }
 
 [sub_resource type="Animation" id="21"]
@@ -328,3 +358,9 @@ libraries = {
 
 [node name="DustPosition" type="Marker2D" parent="." index="6"]
 position = Vector2(0, 6)
+
+[node name="DamageGruntSFX" type="AudioStreamPlayer2D" parent="." index="7"]
+stream = ExtResource("25")
+
+[node name="DeathGruntSFX" type="AudioStreamPlayer2D" parent="." index="8"]
+stream = ExtResource("24")
