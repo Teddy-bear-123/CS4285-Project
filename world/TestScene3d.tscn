@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://e7xgeujj42gu"]
+
+[ext_resource type="PackedScene" uid="uid://kicjwmh02uwf" path="res://scenes/player3d.tscn" id="1_aiqon"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_otwr5"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_ad7tj"]
+sky_material = SubResource("ProceduralSkyMaterial_otwr5")
+
+[sub_resource type="Environment" id="Environment_n6u47"]
+background_mode = 2
+sky = SubResource("Sky_ad7tj")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="TorusMesh" id="TorusMesh_kvhy1"]
+uv2_padding = 7.27
+rings = 200
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_ott31"]
+transparency = 1
+
+[node name="TestScene2" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -1.4360865, 2.1190991, 0, 1.6582494, 7.3407755, -0.50000006, 2.4873745, -3.6703873, -3.9730198, 10.017346, 1.1988511)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_n6u47")
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+transform = Transform3D(5.666311, 0, 0, 0, 0.01183322, 2.6504946, 0, 1.0414146, -0.030116618, 3.7520726, 0.8642845, -1.646996)
+use_collision = true
+mesh = SubResource("TorusMesh_kvhy1")
+material = SubResource("ORMMaterial3D_ott31")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(13.390574, 0, 0, 0, 1.4926025, 0, 0, 0, 1, 4.481439, -0.8148607, -203.4433)
+use_collision = true
+size = Vector3(11, 0.5102539, 628.3953)
+
+[node name="Player" parent="." instance=ExtResource("1_aiqon")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2609634, 0.3659423, -13.20356)

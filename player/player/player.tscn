@@ -1,0 +1,140 @@
+[gd_scene load_steps=22 format=3 uid="uid://ccerl0d5jxenb"]
+
+[ext_resource type="PackedScene" uid="uid://cwec0de6j0lkx" path="res://player/character.tscn" id="1_27t74"]
+[ext_resource type="Texture2D" uid="uid://kfcieplqn3ap" path="res://assets/rougelike-tut/v1.1 dungeon crawler 16x16 pixel pack/heroes/knight/knight_idle_spritesheet.png" id="2_xuvyh"]
+[ext_resource type="Texture2D" uid="uid://beuxbt1hqtnxl" path="res://assets/rougelike-tut/v1.1 dungeon crawler 16x16 pixel pack/heroes/knight/knight_run_spritesheet.png" id="3_78hh6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xuvyh"]
+radius = 5.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uefk6"]
+atlas = ExtResource("2_xuvyh")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sfl1c"]
+atlas = ExtResource("2_xuvyh")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0pt7h"]
+atlas = ExtResource("2_xuvyh")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7es5m"]
+atlas = ExtResource("2_xuvyh")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_soywc"]
+atlas = ExtResource("2_xuvyh")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qnppy"]
+atlas = ExtResource("2_xuvyh")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hcecc"]
+atlas = ExtResource("3_78hh6")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_511fw"]
+atlas = ExtResource("3_78hh6")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yp5ff"]
+atlas = ExtResource("3_78hh6")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3y3s8"]
+atlas = ExtResource("3_78hh6")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sit6q"]
+atlas = ExtResource("3_78hh6")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1frcv"]
+atlas = ExtResource("3_78hh6")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l6vto"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uefk6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sfl1c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0pt7h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7es5m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_soywc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qnppy")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hcecc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_511fw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yp5ff")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3y3s8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sit6q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1frcv")
+}],
+"loop": true,
+"name": &"move",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_j7mb5"]
+resource_name = "idle"
+length = 0.6
+loop_mode = 1
+
+[sub_resource type="Animation" id="Animation_xuvyh"]
+resource_name = "move"
+length = 0.6
+loop_mode = 1
+
+[sub_resource type="Animation" id="Animation_78hh6"]
+resource_name = "new_animation"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fp2gw"]
+_data = {
+&"idle": SubResource("Animation_j7mb5"),
+&"move": SubResource("Animation_xuvyh"),
+&"new_animation": SubResource("Animation_78hh6")
+}
+
+[node name="Player" instance=ExtResource("1_27t74")]
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("CircleShape2D_xuvyh")
+
+[node name="AnimatedSprite2D" parent="." index="2"]
+sprite_frames = SubResource("SpriteFrames_l6vto")
+animation = &"move"
+frame_progress = 0.8837003
+
+[node name="AnimationPlayer" parent="." index="3"]
+libraries = {
+&"": SubResource("AnimationLibrary_fp2gw")
+}
