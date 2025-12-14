@@ -1,11 +1,11 @@
 [gd_scene load_steps=8 format=3 uid="uid://u6okdsefflug"]
 
 [ext_resource type="PackedScene" uid="uid://dftvfv1jceskv" path="res://Characters/Player/Player.tscn" id="2"]
-[ext_resource type="Script" path="res://Game.gd" id="3"]
-[ext_resource type="Script" path="res://Rooms.gd" id="4"]
-[ext_resource type="Texture2D" uid="uid://df3cenyvvexih" path="res://Art/v1.1 dungeon crawler 16x16 pixel pack/ui (new)/health_ui.png" id="5"]
-[ext_resource type="Texture2D" uid="uid://c535uh5i7hsc8" path="res://Art/progress bar.png" id="6"]
-[ext_resource type="Script" path="res://UI.gd" id="7"]
+[ext_resource type="Script" uid="uid://ybtnlql438xj" path="res://Game.gd" id="3"]
+[ext_resource type="Script" uid="uid://bbeepl217bgxq" path="res://Rooms.gd" id="4"]
+[ext_resource type="Texture2D" uid="uid://df3cenyvvexih" path="res://assets/rougelike-tut/v1.1 dungeon crawler 16x16 pixel pack/ui (new)/health_ui.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://c535uh5i7hsc8" path="res://assets/rougelike-tut/progress bar.png" id="6"]
+[ext_resource type="Script" uid="uid://40hy3agyx0yd" path="res://UI.gd" id="7"]
 
 [sub_resource type="StyleBoxFlat" id="1"]
 bg_color = Color(0.713726, 0.670588, 0.670588, 1)
@@ -14,14 +14,14 @@ border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Node2D" unique_id=511341701]
 texture_filter = 1
 script = ExtResource("3")
 
-[node name="UI" type="CanvasLayer" parent="."]
+[node name="UI" type="CanvasLayer" parent="." unique_id=242031285]
 script = ExtResource("7")
 
-[node name="HealthBar" type="TextureProgressBar" parent="UI"]
+[node name="HealthBar" type="TextureProgressBar" parent="UI" unique_id=2005858740]
 texture_filter = 1
 offset_left = 10.0
 offset_top = 10.0
@@ -32,7 +32,7 @@ texture_over = ExtResource("5")
 texture_progress = ExtResource("6")
 tint_progress = Color(0.498039, 0.0313726, 0.0313726, 1)
 
-[node name="PanelContainer" type="PanelContainer" parent="UI"]
+[node name="PanelContainer" type="PanelContainer" parent="UI" unique_id=529258293]
 texture_filter = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -46,17 +46,17 @@ offset_bottom = -16.0
 grow_horizontal = 2
 theme_override_styles/panel = SubResource("1")
 
-[node name="Inventory" type="HBoxContainer" parent="UI/PanelContainer"]
+[node name="Inventory" type="HBoxContainer" parent="UI/PanelContainer" unique_id=338634063]
 layout_mode = 2
 
-[node name="Rooms" type="Node2D" parent="."]
+[node name="Rooms" type="Node2D" parent="." unique_id=1609410216]
 script = ExtResource("4")
 
-[node name="Player" parent="." instance=ExtResource("2")]
+[node name="Player" parent="." unique_id=714147133 instance=ExtResource("2")]
 position = Vector2(133.183, 118.911)
 max_hp = 4
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1089499112]
 
 [connection signal="hp_changed" from="Player" to="UI" method="_on_Player_hp_changed"]
 [connection signal="weapon_droped" from="Player" to="UI" method="_on_Player_weapon_droped"]
