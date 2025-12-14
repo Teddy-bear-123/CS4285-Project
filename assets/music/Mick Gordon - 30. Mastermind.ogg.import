@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bpwnvml0n56qh"
+path="res://.godot/imported/Mick Gordon - 30. Mastermind.ogg-6d4c489b8b95a3be81bca3ef5ed480ab.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/music/Mick Gordon - 30. Mastermind.ogg"
+dest_files=["res://.godot/imported/Mick Gordon - 30. Mastermind.ogg-6d4c489b8b95a3be81bca3ef5ed480ab.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

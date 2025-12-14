@@ -1,3 +1,10 @@
 # Godot 4+ specific ignores
 .godot
 /android/
+*.x86_64
+*.sh
+*.zip
+*.pck
+*.exe
+web_export/
+temp/

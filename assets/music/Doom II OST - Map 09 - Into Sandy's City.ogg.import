@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://5oedjidk2gkl"
+path="res://.godot/imported/Doom II OST - Map 09 - Into Sandy's City.ogg-0f4b22bf083a7a87da6fe6a7d6b7b23d.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/music/Doom II OST - Map 09 - Into Sandy's City.ogg"
+dest_files=["res://.godot/imported/Doom II OST - Map 09 - Into Sandy's City.ogg-0f4b22bf083a7a87da6fe6a7d6b7b23d.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

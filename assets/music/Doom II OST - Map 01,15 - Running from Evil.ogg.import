@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bm5xxf2xey70g"
+path="res://.godot/imported/Doom II OST - Map 01,15 - Running from Evil.ogg-6241e55b466828beae649c7e8d19c607.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/music/Doom II OST - Map 01,15 - Running from Evil.ogg"
+dest_files=["res://.godot/imported/Doom II OST - Map 01,15 - Running from Evil.ogg-6241e55b466828beae649c7e8d19c607.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

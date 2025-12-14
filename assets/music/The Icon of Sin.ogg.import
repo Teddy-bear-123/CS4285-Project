@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b5cvc072jqk62"
+path="res://.godot/imported/The Icon of Sin.ogg-2c31283c8c5edfb0358231c6338eae3f.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/music/The Icon of Sin.ogg"
+dest_files=["res://.godot/imported/The Icon of Sin.ogg-2c31283c8c5edfb0358231c6338eae3f.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

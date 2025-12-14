@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dh6d8aqj6v2bn"
+path="res://.godot/imported/Bfg Division.ogg-c488e62aa399d3f8644d6d8220f6afcd.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/music/Bfg Division.ogg"
+dest_files=["res://.godot/imported/Bfg Division.ogg-c488e62aa399d3f8644d6d8220f6afcd.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

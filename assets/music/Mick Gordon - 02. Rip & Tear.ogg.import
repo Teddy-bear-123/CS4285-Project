@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bb1j0sxqowvoo"
+path="res://.godot/imported/Mick Gordon - 02. Rip & Tear.ogg-f46c2e86e8744d05424a14568c8e6d8e.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/music/Mick Gordon - 02. Rip & Tear.ogg"
+dest_files=["res://.godot/imported/Mick Gordon - 02. Rip & Tear.ogg-f46c2e86e8744d05424a14568c8e6d8e.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
