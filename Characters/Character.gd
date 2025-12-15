@@ -21,6 +21,7 @@ signal hp_changed(new_hp)
 
 var mov_direction: Vector2 = Vector2.ZERO
 
+var dead: bool = false
 
 func _physics_process(_delta: float) -> void:
 	move_and_slide()
@@ -37,15 +38,22 @@ func take_damage(dam: int, dir: Vector2, force: int) -> void:
 	if state_machine.state != state_machine.states.hurt and state_machine.state != state_machine.states.dead:
 		_spawn_hit_effect()
 		self.hp -= dam
+
 		if name == "Player":
 			SavedData.hp = hp
 			if hp == 0:
 				SceneTransistor.start_transition_to("res://Game.tscn")
 				SavedData.reset_data()
+
 		if hp > 0:
 			state_machine.set_state(state_machine.states.hurt)
 			velocity += dir * force
 		else:
+			if dead:
+				return
+			dead = true
+
+			_play_death_sound()
 			state_machine.set_state(state_machine.states.dead)
 			velocity += dir * force * 2
 
@@ -58,3 +66,11 @@ func set_hp(new_hp: int) -> void:
 func _spawn_hit_effect() -> void:
 	var hit_effect: Sprite2D = HIT_EFFECT_SCENE.instantiate()
 	add_child(hit_effect)
+
+func _play_death_sound() -> void:
+	if has_node("AudioStreamPlayer2D"):
+		var sfx: AudioStreamPlayer2D = $AudioStreamPlayer2D
+		remove_child(sfx)
+		get_tree().current_scene.add_child(sfx)
+		sfx.play()
+		sfx.finished.connect(sfx.queue_free)
